@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ReactJS</title>
+</head>
+<body>
+
+<div id="content"></div>
+
+<script type="text/javascript" src="bower_components/react/react.js"></script>
+<script type="text/javascript" src="bower_components/react/JSXTransformer.js"></script>
+
+<script type="text/jsx">
+/*** @jsx React.DOM */
+
+var PeopleData = [
+{first: "Tony", last: "Stark"},
+{first: "Jane",  last: "Foster"},
+{first: "Jane",  last: "Foster"},
+{first: "Jane",  last: "Foster"},
+{first: "Jane",  last: "Foster"},
+]
+var PersonApp = React.createClass({
+	render:function(){
+		return(
+			<div>
+			<h1>Welcome to my app</h1>
+			<PersonList data={this.props.data} />
+			</div>
+			)
+	}
+});
+
+var Person = React.createClass({
+	render:function(){
+		return(
+			<li>{this.props.first}, {this.props.last}</li>
+			)
+
+	}
+});
+
+var PersonList = React.createClass({
+	render:function(){
+		var people = this.props.data.map(function(person)
+		{
+			return <Person first={person.first} last={person.last} />
+		});
+		return(
+			<div>
+			{people}
+			</div>
+			)
+	}
+})
+
+React.render(<PersonApp data={PeopleData} />, document.getElementById('content'))
+</script>
+
+</body>
+</html>

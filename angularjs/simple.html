@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="">
+<head>
+	<title>{{SampleText + 1 }}</title>
+
+</head>
+
+<body>
+<div ng-init = "names=['varun','Raj']">
+<input type="number" ng-model="SampleText">
+{{SampleText + 1 }}
+
+<ol>
+<li ng-repeat="name in names">
+{{name}}
+</li>
+</ol>
+</div>
+
+<script type="text/javascript" src="bower_components/angularjs/angular.min.js"></script>
+<script type="text/javascript" src="scripts/app.js"></script>
+</body>
+
+</html>
